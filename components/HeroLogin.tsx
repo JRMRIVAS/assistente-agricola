@@ -66,7 +66,7 @@ export default function HeroLogin({ onOpenLogin }: HeroProps) {
                 >
                     <div className="relative z-10 glass-panel rounded-3xl p-2 shadow-2xl shadow-emerald-900/10 transform rotate-y-12 hover:rotate-0 transition-transform duration-700 ease-out-expo">
                         <img
-                            src="/heroImage.png"
+                            src="/heroImage.webp"
                             alt="Smart Agriculture Dashboard Illustration"
                             className="w-full h-auto rounded-2xl"
                         />

@@ -96,7 +96,7 @@ export default function CropSowingView({
     };
 
     return (
-        <section className="max-w-6xl mx-auto px-6 py-10">
+        <section className="max-w-6xl mx-auto px-4 py-10">
             <button
                 onClick={onBack}
                 className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-emerald-600 hover:text-emerald-700"
@@ -104,14 +104,14 @@ export default function CropSowingView({
                 ← Volver al catálogo
             </button>
 
-            <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr),minmax(0,1.6fr)] items-start">
+            <div className="grid gap-6 lg:grid-cols-2 items-start">
                 {/* Resumen del cultivo */}
                 <div className="rounded-3xl bg-white shadow-sm p-5 flex flex-col gap-4">
                     <div className="text-xs font-semibold text-slate-400 uppercase">
                         Resumen
                     </div>
 
-                    <div className="overflow-hidden rounded-2xl bg-slate-100 h-32">
+                    <div className="overflow-hidden rounded-2xl bg-slate-100 h-48">
                         <div className="relative w-full h-full">
                             <Image
                                 src={crop.image}
@@ -163,6 +163,7 @@ export default function CropSowingView({
                                     onChange={(e) => setSowingDate(e.target.value)}
                                     className="rounded-2xl border border-emerald-200 bg-white px-4 py-2 text-sm text-slate-700 outline-none focus:ring-2 focus:ring-emerald-300 focus:border-emerald-400"
                                 />
+                                <p className="text-sm text-center mt-5">selecciona una fecha</p>
                             </div>
                         </div>
                     </div>
