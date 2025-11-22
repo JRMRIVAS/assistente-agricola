@@ -1,7 +1,7 @@
 "use client";
 
 import type { Cultivo } from "./CropsCatalog";
-import type { CropPlan } from "@/lib/cropPlanner";
+import type { CropPlan } from "@/lib/cropPlan";
 
 type CropPlanResultProps = {
   crop: Cultivo;
@@ -19,8 +19,8 @@ export default function CropPlanResult({
   const sowing = plan.sowingDateLabel;
   const harvest = plan.harvestDateLabel;
   const success = plan.successRate;
-
-  const events = plan.events; // ya viene con label + dateLabel
+  const events = plan.events;
+  const rec = plan.recommendations;
 
   return (
     <section className="max-w-6xl mx-auto px-6 py-10 space-y-8">
@@ -100,21 +100,21 @@ export default function CropPlanResult({
             <CardRecomendacion
               icon="💧"
               title="Plan de Riego"
-              text={`Para ${crop.name} en suelo ${crop.soil}, se recomienda riego ${crop.water.toLowerCase()}. (Texto de ejemplo, sin lógica real aún).`}
+              text={rec.irrigation}
               bg="bg-sky-50"
               color="text-sky-500"
             />
             <CardRecomendacion
               icon="☀️"
               title="Condiciones Climáticas"
-              text={`Este cultivo prefiere clima ${crop.climate.toLowerCase()}. Monitorear eventos extremos de temperatura. (Demo).`}
+              text={rec.climate}
               bg="bg-amber-50"
               color="text-amber-500"
             />
             <CardRecomendacion
               icon="🌱"
               title="Nutrición del Suelo"
-              text="Aplicar fertilizante de base al momento de la siembra y reforzar durante el desarrollo vegetativo. (Contenido demo)."
+              text={rec.soil}
               bg="bg-emerald-50"
               color="text-emerald-500"
             />
@@ -130,7 +130,7 @@ export default function CropPlanResult({
                 <TimelineItem
                   key={e.id}
                   color={getEventColor(idx)}
-                  date={e.dateLabel.split(" ")[0]} // solo día (como "22")
+                  date={e.dateLabel} // solo día (como "22")
                   label={e.label}
                 />
               ))}

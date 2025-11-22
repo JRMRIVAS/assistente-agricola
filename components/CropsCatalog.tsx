@@ -6,7 +6,9 @@ import cropsData from "@/data/crops.json";
 import { motion } from "motion/react";
 import CropSowingView from "./CropSowingView";
 import CropPlanResult from "./CropPlanResult";
-import { calculateCropPlan, type CropPlan } from "@/lib/cropPlanner";
+import type { CropPlan } from "@/lib/cropPlan";
+import type { CropAnalysisInput } from "@/lib/cropAnalysis";
+
 
 export type Cultivo = {
     id: string;
@@ -24,6 +26,9 @@ export default function CropsCatalog() {
     const [selectedCrop, setSelectedCrop] = useState<Cultivo | null>(null);
     const [plan, setPlan] = useState<CropPlan | null>(null);
     const [lastSowingDate, setLastSowingDate] = useState<string>("");
+    const [isLoadingPlan, setIsLoadingPlan] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
 
     // 3) Vista RESULTADO (Planificación Lista)
     if (selectedCrop && plan) {
@@ -41,21 +46,46 @@ export default function CropsCatalog() {
         );
     }
 
-    // 2) Vista CALENDARIO + RESUMEN del cultivo
     if (selectedCrop) {
         return (
             <CropSowingView
                 crop={selectedCrop}
-                onBack={() => setSelectedCrop(null)}
+                onBack={() => {
+                    setSelectedCrop(null);
+                    setPlan(null);
+                    setError(null);
+                }}
                 defaultDate={lastSowingDate}
-                onCalculate={({ crop, sowingDate }) => {
-                    setLastSowingDate(sowingDate);
-                    const result = calculateCropPlan(crop.duration, sowingDate);
-                    setPlan(result);
+                onCalculate={async (input: CropAnalysisInput) => {
+                    try {
+                        setError(null);                                                                                                                                                                                                 
+                        setIsLoadingPlan(true);
+                        setLastSowingDate(input.sowingDate);
+
+                        const res = await fetch("/api/plan-siembra", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(input),
+                        });
+
+                        if (!res.ok) {
+                            const data = await res.json().catch(() => null);
+                            throw new Error(data?.error || "Error al generar el plan");
+                        }
+
+                        const data = (await res.json()) as CropPlan;
+                        setPlan(data);
+                    } catch (err: any) {
+                        console.error(err);
+                        setError(err.message || "Ocurrió un error al calcular el plan.");
+                    } finally {
+                        setIsLoadingPlan(false);
+                    }
                 }}
             />
         );
     }
+
 
     // 1) Vista GRID (catálogo)
     return (
