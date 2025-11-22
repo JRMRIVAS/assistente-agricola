@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "email": "demo@agricultor.com",
+        "password": "123456",
+        "name": "Productor Demo"
+    },
+    {
+        "id": 2,
+        "email": "admin@agricultor.com",
+        "password": "admin123",
+        "name": "Admin Agrícola"
+    }
+]

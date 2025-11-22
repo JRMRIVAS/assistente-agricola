@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Brand Colors */
+  --color-emerald-500: hsl(147 50% 47%); /* #3CB371 */
+  --color-leaf-500: hsl(122 39% 57%);    /* #66BB6A */
+  --color-earth-500: hsl(38 41% 61%);    /* #C3A572 */
+  
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+}
+
+/* LIGHT MODE */
+:root {
+  --radius: 0.75rem;
+  
+  --background: 0 0% 98%; /* Very light grey/white */
+  --foreground: 150 10% 15%; /* Deep dark green-grey */
+
+  --card: 0 0% 100%;
+  --card-foreground: 150 10% 15%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 150 10% 15%;
+
+  /* Agro Brand Colors mapping */
+  --primary: 147 50% 47%; /* Emerald */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 38 41% 61%; /* Earth */
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 120 10% 96%;
+  --muted-foreground: 150 5% 40%;
+
+  --accent: 122 39% 57%; /* Leaf Green */
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 147 20% 90%; /* Subtle green tint */
+  --input: 147 20% 90%;
+  --ring: 147 50% 47%;
+
+  --chart-1: 147 50% 47%;
+  --chart-2: 122 39% 57%;
+  --chart-3: 38 41% 61%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+
+  --sidebar: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+  
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Lora', serif;
+}
+
+.dark {
+  /* Dark mode values kept neutral but compatible */
+  --background: 150 10% 10%;
+  --foreground: 0 0% 98%;
+
+  --card: 150 10% 12%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 150 10% 12%;
+  --popover-foreground: 0 0% 98%;
+
+  --primary: 147 50% 47%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 38 41% 61%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 150 10% 20%;
+  --muted-foreground: 150 5% 65%;
+
+  --accent: 150 10% 20%;
+  --accent-foreground: 0 0% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 150 10% 20%;
+  --input: 150 10% 20%;
+  --ring: 147 50% 47%;
+}
+
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}

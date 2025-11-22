@@ -1,0 +1,47 @@
+[
+    {
+        "id": "maiz-hibrido",
+        "name": "Maíz Híbrido",
+        "image": "/cultivos/maiz-hibrido.jpg",
+        "duration": "120–150 días",
+        "climate": "Cálido",
+        "soil": "Franco-arcilloso",
+        "water": "Moderado"
+    },
+    {
+        "id": "trigo-invernal",
+        "name": "Trigo Invernal",
+        "image": "/cultivos/trigo-invernal.jpg",
+        "duration": "110–130 días",
+        "climate": "Templado",
+        "soil": "Franco-limoso",
+        "water": "Bajo"
+    },
+    {
+        "id": "soja",
+        "name": "Soja",
+        "image": "/cultivos/soja.jpg",
+        "duration": "90–120 días",
+        "climate": "Subtropical",
+        "soil": "Franco",
+        "water": "Alto"
+    },
+    {
+        "id": "tomate-industrial",
+        "name": "Tomate Industrial",
+        "image": "/cultivos/tomate-industrial.jpg",
+        "duration": "70–90 días",
+        "climate": "Templado",
+        "soil": "Arenoso",
+        "water": "Alto"
+    },
+    {
+        "id": "lechuga",
+        "name": "Lechuga",
+        "image": "/cultivos/lechuga.jpg",
+        "duration": "45–60 días",
+        "climate": "Fresco",
+        "soil": "Humífero",
+        "water": "Regular"
+    }
+]
