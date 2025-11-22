@@ -58,7 +58,7 @@ export default function CropsCatalog() {
                 defaultDate={lastSowingDate}
                 onCalculate={async (input: CropAnalysisInput) => {
                     try {
-                        setError(null);                                                                                                                                                                                                 
+                        setError(null);
                         setIsLoadingPlan(true);
                         setLastSowingDate(input.sowingDate);
 
@@ -82,9 +82,11 @@ export default function CropsCatalog() {
                         setIsLoadingPlan(false);
                     }
                 }}
+                isLoading={isLoadingPlan}   // 👈 AQUÍ LE LLEGARÁ EL LOADER AL HIJO
             />
         );
     }
+
 
 
     // 1) Vista GRID (catálogo)

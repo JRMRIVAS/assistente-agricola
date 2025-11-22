@@ -10,6 +10,7 @@ type CropSowingViewProps = {
     onBack: () => void;
     defaultDate?: string;
     onCalculate?: (payload: CropAnalysisInput) => void;
+    isLoading?: boolean;
 };
 
 const DEPARTAMENTOS_SV = [
@@ -55,6 +56,7 @@ export default function CropSowingView({
     onBack,
     defaultDate,
     onCalculate,
+    isLoading = false,
 }: CropSowingViewProps) {
     const [sowingDate, setSowingDate] = useState<string>(defaultDate ?? "");
     const [department, setDepartment] = useState<string>("");
@@ -99,7 +101,7 @@ export default function CropSowingView({
         <section className="max-w-6xl mx-auto px-4 py-10">
             <button
                 onClick={onBack}
-                className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-emerald-600 hover:text-emerald-700"
+                className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-emerald-600 hover:text-emerald-700 cursor-pointer"
             >
                 ← Volver al catálogo
             </button>
@@ -285,10 +287,17 @@ export default function CropSowingView({
                         <button
                             type="button"
                             onClick={handleCalculate}
-                            className="inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-sm font-semibold shadow-md bg-emerald-500 text-white hover:bg-emerald-600 transition"
+                            disabled={isLoading}
+                            className={`inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 text-sm font-semibold shadow-md text-white transition ${isLoading
+                                    ? "bg-emerald-400 cursor-not-allowed opacity-80"
+                                    : "bg-emerald-500 hover:bg-emerald-600"
+                                }`}
                         >
-                            Calcular Cosecha
-                            <span>→</span>
+                            {isLoading && (
+                                <span className="h-4 w-4 rounded-full border-2 border-white/50 border-t-transparent animate-spin" />
+                            )}
+                            {isLoading ? "Generando plan..." : "Calcular Cosecha"}
+                            {!isLoading && <span>→</span>}
                         </button>
                     </div>
                 </div>
